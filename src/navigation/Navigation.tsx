@@ -1,10 +1,10 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../pages/HomeScreen';
-import FeedScreen from '../pages/FeedScreen';
-import ProfileScreen from '../pages/ProfileScreen';
+import HomeScreen from '../pages/Home/HomeScreen';
+import FeedScreen from '../pages/Feed/FeedScreen';
+import ProfileScreen from '../pages/Profile/ProfileScreen';
 import {Image, StyleSheet} from 'react-native';
-import COLORS from '../theme/colors';
+import {theme} from '../theme/theme';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
@@ -13,9 +13,9 @@ export default function Navigation() {
     <NavigationContainer>
       <BottomTabNavigator.Navigator
         screenOptions={{
-          tabBarActiveTintColor: COLORS.lightblue,
-          tabBarInactiveTintColor: COLORS.black,
-          tabBarActiveBackgroundColor: COLORS.lightgray,
+          tabBarActiveTintColor: theme.colors.lightBlue,
+          tabBarInactiveTintColor: theme.colors.black,
+          tabBarActiveBackgroundColor: theme.colors.lightGray,
           tabBarLabelStyle: {fontSize: 20},
           tabBarStyle: {height: 100},
         }}>

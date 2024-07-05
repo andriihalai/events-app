@@ -1,7 +1,7 @@
-const COLORS = {
-  lightgray: '#d3d3d3',
-  lightblue: '#0165fc',
+const APColors = {
+  lightGray: '#d3d3d3',
+  lightBlue: '#0165fc',
   black: '#1f1d1b',
 };
 
-export default COLORS;
+export default APColors;
