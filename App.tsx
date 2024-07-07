@@ -1,7 +1,12 @@
 import * as React from 'react';
-// import {SafeAreaView} from 'react-native';
 import Navigation from './src/navigation/Navigation';
+import {Provider} from 'react-redux';
+import store from './src/store/store';
 
 export default function App() {
-  return <Navigation />;
+  return (
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
+  );
 }
