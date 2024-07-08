@@ -1,5 +1,5 @@
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import styles from './Post.presets';
+import styles from './Event.presets';
 
 interface PostProps {
   title: string;

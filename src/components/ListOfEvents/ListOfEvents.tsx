@@ -4,7 +4,7 @@ import {FlatList} from 'react-native';
 import {useSelector} from 'react-redux';
 import {fetchPosts} from '../../store/posts';
 import {useAppDispatch} from '../../store/store';
-import Post from '../Post/Post';
+import Post from '../Event/Event';
 
 export default function ListOfEvents() {
   const posts = useSelector((state: RootState) => state.posts.posts);
