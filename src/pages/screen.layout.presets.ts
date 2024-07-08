@@ -1,15 +1,11 @@
 import {ViewStyle, StyleSheet} from 'react-native';
 
-interface Styles {
-  container: ViewStyle;
-}
+const layout: ViewStyle = {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+};
 
-const view = StyleSheet.create<Styles>({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+export default StyleSheet.create({
+  layout,
 });
-
-export default view;

@@ -1,9 +1,9 @@
 import {View, Text} from 'react-native';
-import view from '../screen.layout.presets';
+import styles from '../screen.layout.presets';
 
 export default function ProfileScreen() {
   return (
-    <View style={view.container}>
+    <View style={styles.layout}>
       <Text>Profile!</Text>
     </View>
   );
