@@ -1,9 +1,11 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {useDispatch} from 'react-redux';
 import postsReducer from './event';
 
+const rootReducer = combineReducers({posts: postsReducer});
+
 const store = configureStore({
-  reducer: {posts: postsReducer},
+  reducer: rootReducer,
 });
 
 export default store;

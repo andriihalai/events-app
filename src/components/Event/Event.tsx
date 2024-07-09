@@ -11,7 +11,6 @@ interface PostProps {
 
 export default function Event({title, location, date, photoUrl}: PostProps) {
   const newDate = new Date(date);
-
   return (
     <View style={styles.eventContainer}>
       <View style={styles.eventInfoSection}>
