@@ -4,28 +4,26 @@ import styles from './Event.presets';
 interface PostProps {
   title: string;
   location: string;
-  date: Date;
-  photoUrl?: string;
+  date: Date | string;
+  photoUrl: string;
+  description?: string;
 }
 
-export default function Event({
-  title,
-  location,
-  date,
-}: // photoUrl,
-PostProps) {
+export default function Event({title, location, date, photoUrl}: PostProps) {
+  const newDate = new Date(date);
+
   return (
     <View style={styles.eventContainer}>
       <View style={styles.eventInfoSection}>
         <View>
-          <Image
-            style={styles.image}
-            source={require('../../assets/eventPic.jpg')}
-          />
+          <Image style={styles.image} source={{uri: photoUrl}} />
         </View>
         <View style={styles.eventDetails}>
           <Text style={styles.postTitle}>{title}</Text>
-          <Text>Date: {date.toLocaleDateString()}</Text>
+          <Text>
+            Date:
+            {newDate.toLocaleDateString()}
+          </Text>
           <Text>Location: {location}</Text>
         </View>
       </View>

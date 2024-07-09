@@ -2,9 +2,9 @@ import {RootState} from '../../store/store';
 import {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useSelector} from 'react-redux';
-import {fetchPosts} from '../../store/posts';
+import {fetchPosts} from '../../store/event';
 import {useAppDispatch} from '../../store/store';
-import Post from '../Event/Event';
+import Event from '../Event/Event';
 
 export default function ListOfEvents() {
   const posts = useSelector((state: RootState) => state.posts.posts);
@@ -19,12 +19,11 @@ export default function ListOfEvents() {
       keyExtractor={item => item.id.toString()}
       data={posts}
       renderItem={({item}) => (
-        <Post
+        <Event
           title={item.title}
-          // TODO: Take the data below from db
-          photoUrl="https://theperfectevent.com/wp-content/uploads/2020/01/Main-Scroll-2.jpg"
-          location="Kyiv"
-          date={new Date()}
+          photoUrl={item.photoUrl}
+          location={item.location}
+          date={item.date}
         />
       )}
       windowSize={5}

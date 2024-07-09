@@ -4,6 +4,9 @@ interface Post {
   id: number;
   title: string;
   description: string;
+  location: string;
+  photoUrl: string;
+  date: Date | string;
 }
 
 interface IPostsInitialState {
