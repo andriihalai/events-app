@@ -1,8 +1,8 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {useDispatch} from 'react-redux';
-import postsReducer from './event';
+import activitiesReducer from './activitySlice';
 
-const rootReducer = combineReducers({posts: postsReducer});
+const rootReducer = combineReducers({activities: activitiesReducer});
 
 const store = configureStore({
   reducer: rootReducer,

@@ -2,23 +2,25 @@ import {RootState} from '../../../../store/store';
 import {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useSelector} from 'react-redux';
-import {fetchPosts} from '../../../../store/event';
+import {fetchActivities} from '../../../../store/activitySlice';
 import {useAppDispatch} from '../../../../store/store';
 import Activity from '../Activity/Activity';
 import {MOCKDATA} from './mock';
 
 export default function ListOfEvents() {
-  let posts = useSelector((state: RootState) => state.posts.posts);
-  posts = MOCKDATA;
+  let activities = useSelector(
+    (state: RootState) => state.activities.activities,
+  );
+  activities = MOCKDATA;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchPosts());
+    dispatch(fetchActivities());
   }, [dispatch]);
   return (
     <FlatList
       keyExtractor={item => item.id.toString()}
-      data={posts}
+      data={activities}
       renderItem={({item}) => (
         <Activity
           title={item.title}
