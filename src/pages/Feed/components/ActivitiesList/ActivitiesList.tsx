@@ -1,25 +1,26 @@
-import {RootState} from '../../store/store';
+import {RootState} from '../../../../store/store';
 import {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useSelector} from 'react-redux';
-import {fetchPosts} from '../../store/event';
-import {useAppDispatch} from '../../store/store';
-import Event from '../Event/Event';
+import {fetchPosts} from '../../../../store/event';
+import {useAppDispatch} from '../../../../store/store';
+import Activity from '../Activity/Activity';
+import {MOCKDATA} from './mock';
 
 export default function ListOfEvents() {
-  const posts = useSelector((state: RootState) => state.posts.posts);
+  let posts = useSelector((state: RootState) => state.posts.posts);
+  posts = MOCKDATA;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchPosts());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
   return (
     <FlatList
       keyExtractor={item => item.id.toString()}
       data={posts}
       renderItem={({item}) => (
-        <Event
+        <Activity
           title={item.title}
           photoUrl={item.photoUrl}
           location={item.location}
