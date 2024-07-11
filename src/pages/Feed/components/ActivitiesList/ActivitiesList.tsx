@@ -1,22 +1,10 @@
-import {RootState} from '../../../../store/store';
-import {useEffect} from 'react';
 import {FlatList} from 'react-native';
-import {useSelector} from 'react-redux';
-import {fetchActivities} from '../../../../store/activitySlice';
-import {useAppDispatch} from '../../../../store/store';
 import Activity from '../Activity/Activity';
-import {MOCKDATA} from './mock';
+import {useGetActivitiesQuery} from '../../../../api/activitiesApi/activitiesApi';
 
 export default function ListOfEvents() {
-  let activities = useSelector(
-    (state: RootState) => state.activities.activities,
-  );
-  activities = MOCKDATA;
-  const dispatch = useAppDispatch();
+  const {data: activities} = useGetActivitiesQuery();
 
-  useEffect(() => {
-    dispatch(fetchActivities());
-  }, [dispatch]);
   return (
     <FlatList
       keyExtractor={item => item.id.toString()}
@@ -29,6 +17,7 @@ export default function ListOfEvents() {
           date={item.date}
         />
       )}
+      //TODO: add pagination
       windowSize={5}
     />
   );
