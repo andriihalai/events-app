@@ -23,11 +23,6 @@ interface LoginRequest {
   password: string;
 }
 
-interface LoginResponse {
-  user: User;
-  accessToken: string;
-}
-
 export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: API_BASE,
@@ -48,7 +43,7 @@ export const authApi = createApi({
         body: credentials,
       }),
     }),
-    login: builder.mutation<LoginResponse, LoginRequest>({
+    login: builder.mutation<UserResponse, LoginRequest>({
       query: credentials => ({
         url: 'login',
         method: 'POST',
