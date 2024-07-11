@@ -18,6 +18,16 @@ export interface SignupRequest {
   password: string;
 }
 
+interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+interface LoginResponse {
+  user: User;
+  accessToken: string;
+}
+
 export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: API_BASE,
@@ -38,10 +48,14 @@ export const authApi = createApi({
         body: credentials,
       }),
     }),
-    protected: builder.mutation<{message: string}, void>({
-      query: () => 'protected',
+    login: builder.mutation<LoginResponse, LoginRequest>({
+      query: credentials => ({
+        url: 'login',
+        method: 'POST',
+        body: credentials,
+      }),
     }),
   }),
 });
 
-export const {useSignupMutation} = authApi;
+export const {useSignupMutation, useLoginMutation} = authApi;
