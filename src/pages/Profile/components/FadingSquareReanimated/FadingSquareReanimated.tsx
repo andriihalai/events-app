@@ -13,13 +13,14 @@ export default function FadingSquareReanimated({
   const [isShown, setIsShown] = useState(true);
 
   const handlePress = () => {
-    if (isShown) {
-      opacity.value = withTiming(0, {duration: 1500});
-      squareSideLength.value = withTiming(sideLength - 50, {duration: 1500});
-    } else {
-      opacity.value = withTiming(1, {duration: 500});
-      squareSideLength.value = withTiming(sideLength, {duration: 500});
-    }
+    const animDuration = isShown ? 1500 : 500;
+    const opacityValue = isShown ? 0 : 1;
+    const newSideLength = isShown ? sideLength - 50 : sideLength;
+
+    opacity.value = withTiming(opacityValue, {duration: animDuration});
+    squareSideLength.value = withTiming(newSideLength, {
+      duration: animDuration,
+    });
     setIsShown(!isShown);
   };
 
