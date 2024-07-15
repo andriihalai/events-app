@@ -1,6 +1,7 @@
 import {useState} from 'react';
-import {StyleSheet, Pressable} from 'react-native';
+import {Pressable} from 'react-native';
 import Animated, {useSharedValue, withTiming} from 'react-native-reanimated';
+import styles from './FadingSquareReanimated.presets';
 
 export default function FadingSquareReanimated({
   sideLength,
@@ -35,12 +36,3 @@ export default function FadingSquareReanimated({
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  square: {
-    backgroundColor: 'blue',
-    borderRadius: 10,
-    width: 200,
-    height: 200,
-  },
-});

@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
-import {Animated, StyleSheet, Pressable} from 'react-native';
+import {Animated, Pressable} from 'react-native';
+import styles from './FadingSquare.presets';
 
 export default function FadingSquare({sideLength}: {sideLength: number}) {
   const opacity = useRef(new Animated.Value(1)).current;
@@ -48,10 +49,3 @@ export default function FadingSquare({sideLength}: {sideLength: number}) {
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  square: {
-    backgroundColor: 'red',
-    borderRadius: 10,
-  },
-});
