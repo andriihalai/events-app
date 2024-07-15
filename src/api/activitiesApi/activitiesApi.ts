@@ -1,5 +1,5 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {API_BASE} from '@env';
+import {createApi} from '@reduxjs/toolkit/query/react';
+import baseQuery from '../baseQuery';
 
 interface Activity {
   id: number;
@@ -14,7 +14,7 @@ type ActivitiesResponse = Activity[];
 export const activitiesApi = createApi({
   reducerPath: 'activitiesApi',
   tagTypes: ['Activities'],
-  baseQuery: fetchBaseQuery({baseUrl: API_BASE}),
+  baseQuery,
   endpoints: build => ({
     getActivities: build.query<ActivitiesResponse, void>({
       query: () => 'activities',

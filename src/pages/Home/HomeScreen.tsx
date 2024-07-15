@@ -1,12 +1,12 @@
 import {View, Text, Button} from 'react-native';
 import styles from '../screen.layout.presets';
-import {useSignupMutation, useLoginMutation} from '../../api/services/auth';
+import {useSignupMutation, useLoginMutation} from '../../api/authApi/authApi';
 import {useAppDispatch} from '../../store/store';
 import {setCredentials} from '../../store/authSlice';
 
 const userData = {
-  username: 'Android',
-  email: 'test3@gmail.com',
+  username: 'BASEQUERY',
+  email: 'test4@gmail.com',
   password: 'password',
 };
 

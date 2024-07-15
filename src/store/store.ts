@@ -2,7 +2,7 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {useDispatch} from 'react-redux';
 import activitiesReducer from './activitySlice';
 import {activitiesApi} from '../api/activitiesApi/activitiesApi';
-import {authApi} from '../api/services/auth';
+import {authApi} from '../api/authApi/authApi';
 import authReducer from './authSlice';
 
 const rootReducer = combineReducers({
