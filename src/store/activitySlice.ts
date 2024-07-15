@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {API_BASE} from '@env';
 
-interface Post {
+interface Activity {
   id: number;
   title: string;
   description: string;
@@ -10,39 +10,38 @@ interface Post {
   date: Date | string;
 }
 
-interface IPostsInitialState {
-  posts: Post[];
+interface IActivitiesInitialState {
+  activities: Activity[];
 }
 
-const postsInitialState: IPostsInitialState = {
-  posts: [],
+const activitiesInitialState: IActivitiesInitialState = {
+  activities: [],
 };
 
 const posts = createSlice({
-  name: 'posts',
-  initialState: postsInitialState,
+  name: 'activities',
+  initialState: activitiesInitialState,
   reducers: {
     fetchPosts(state, action) {
-      state.posts = action.payload;
+      state.activities = action.payload;
     },
     addPost(state, action) {
-      state.posts.push(action.payload);
+      state.activities.push(action.payload);
     },
   },
   extraReducers: builder => {
-    builder.addCase(fetchPosts.fulfilled, (state, action) => {
-      state.posts = action.payload;
+    builder.addCase(fetchActivities.fulfilled, (state, action) => {
+      state.activities = action.payload;
     });
   },
 });
 
-const fetchPosts = createAsyncThunk(
+const fetchActivities = createAsyncThunk(
   'posts/fetchPosts',
   async (_, {rejectWithValue}) => {
     try {
       const api = API_BASE;
 
-      // Why does not work when i paste API_BASE direcly to fetch?
       const response = await fetch(`${api}/events`);
       if (!response.ok) {
         throw new Error('Could not fetch posts');
@@ -58,4 +57,4 @@ const fetchPosts = createAsyncThunk(
 
 const postsReducer = posts.reducer;
 export default postsReducer;
-export {fetchPosts};
+export {fetchActivities};

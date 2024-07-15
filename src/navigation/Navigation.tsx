@@ -3,8 +3,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../pages/Home/HomeScreen';
 import FeedScreen from '../pages/Feed/FeedScreen';
 import ProfileScreen from '../pages/Profile/ProfileScreen';
-import {Image, StyleSheet} from 'react-native';
 import {theme} from '../theme/theme';
+import Home from '../assets/svg/HomeIcon';
+import {EarthIcon, ProfileIcon} from '../assets/svg/index';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
@@ -25,12 +26,7 @@ export default function Navigation() {
             component={HomeScreen}
             options={{
               // eslint-disable-next-line react/no-unstable-nested-components
-              tabBarIcon: () => (
-                <Image
-                  source={require('./../assets/HomeIcon.png')}
-                  style={styles.icon}
-                />
-              ),
+              tabBarIcon: () => <Home width={40} height={40} />,
             }}
           />
           <BottomTabNavigator.Screen
@@ -38,12 +34,7 @@ export default function Navigation() {
             component={FeedScreen}
             options={{
               // eslint-disable-next-line react/no-unstable-nested-components
-              tabBarIcon: () => (
-                <Image
-                  source={require('./../assets/FeedIcon.png')}
-                  style={styles.icon}
-                />
-              ),
+              tabBarIcon: () => <EarthIcon width={40} height={40} />,
             }}
           />
           <BottomTabNavigator.Screen
@@ -51,12 +42,7 @@ export default function Navigation() {
             component={ProfileScreen}
             options={{
               // eslint-disable-next-line react/no-unstable-nested-components
-              tabBarIcon: () => (
-                <Image
-                  source={require('./../assets/ProfileIcon.png')}
-                  style={styles.icon}
-                />
-              ),
+              tabBarIcon: () => <ProfileIcon width={40} height={40} />,
             }}
           />
         </BottomTabNavigator.Group>
@@ -64,10 +50,3 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  icon: {
-    width: 25,
-    height: 25,
-  },
-});

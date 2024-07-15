@@ -1,5 +1,5 @@
 import {ImageStyle, StyleSheet, TextStyle, ViewStyle} from 'react-native';
-import {theme} from '../../theme/theme';
+import {theme} from '../../../../theme/theme';
 
 const eventContainer: ViewStyle = {
   borderWidth: 0.3,
@@ -19,17 +19,16 @@ const eventContainer: ViewStyle = {
   elevation: 5,
 };
 
-const btn: ViewStyle = {
+const button: ViewStyle = {
   backgroundColor: theme.colors.cherryRed,
   padding: 8,
-  paddingRight: 12,
-  paddingLeft: 12,
+  paddingHorizontal: 12,
   marginTop: 10,
   marginLeft: 8,
   borderRadius: 10,
 };
 
-const btnText: TextStyle = {
+const buttonText: TextStyle = {
   color: theme.colors.white,
 };
 
@@ -55,7 +54,7 @@ const eventDetails: ViewStyle = {
   justifyContent: 'space-evenly',
 };
 
-const btnsSection: ViewStyle = {
+const buttonsSection: ViewStyle = {
   alignSelf: 'flex-end',
   flexDirection: 'row',
   marginRight: 10,
@@ -65,9 +64,9 @@ export default StyleSheet.create({
   eventContainer,
   postTitle,
   image,
-  btn,
-  btnText,
+  button,
+  buttonText,
   eventInfoSection,
   eventDetails,
-  btnsSection,
+  buttonsSection,
 });

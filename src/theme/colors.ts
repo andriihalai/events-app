@@ -6,6 +6,7 @@ const APColors = {
   softGray: '#BCBCBC',
   lightBlue: '#0165fc',
   cherryRed: '#E12735',
+  crimsonBlaze: '#BF363D', // shape of red
 };
 
 export default APColors;

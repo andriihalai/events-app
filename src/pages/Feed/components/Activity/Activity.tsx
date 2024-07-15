@@ -1,7 +1,7 @@
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import styles from './Event.presets';
+import styles from './Activity.presets';
 
-interface PostProps {
+interface IActivityProps {
   title: string;
   location: string;
   date: Date | string;
@@ -9,7 +9,12 @@ interface PostProps {
   description?: string;
 }
 
-export default function Event({title, location, date, photoUrl}: PostProps) {
+export default function Activity({
+  title,
+  location,
+  date,
+  photoUrl,
+}: IActivityProps) {
   const newDate = new Date(date);
   return (
     <View style={styles.eventContainer}>
@@ -26,12 +31,12 @@ export default function Event({title, location, date, photoUrl}: PostProps) {
           <Text>Location: {location}</Text>
         </View>
       </View>
-      <View style={styles.btnsSection}>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnText}>View details</Text>
+      <View style={styles.buttonsSection}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>View details</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnText}>Register</Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
       </View>
     </View>
